@@ -3,55 +3,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inscripción al taller</title>
+  <title>Gestor de Notas Accesible</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
 <body>
   <main class="tarjeta">
-    <img src="img/banner.png" alt="Estudiantes programando en el laboratorio">
-    <h1>Inscríbete al taller</h1>
-    <p class="ayuda">Completa tus datos. Todos los campos son obligatorios.</p>
- 
-    <form id="formulario" novalidate>
+    <img src="img/banner.png" alt="Estudiantes en el laboratorio de desarrollo de software">
+    <h1>Mi Gestor de Notas</h1>
+    <p class="ayuda">Organiza tus tareas y recordatorios diarios de forma sencilla.</p>
+
+    <form id="form-nota" novalidate>
       <fieldset>
-        <legend>1. Tus datos</legend>
-        <label for="nombre">Nombre completo</label>
-        <input id="nombre" type="text" autocomplete="name" required>
- 
-        <label for="correo">Correo electrónico</label>
-        <input id="correo" type="email" autocomplete="email"
-               placeholder="nombre@tecsup.edu.pe" required>
- 
-        <label for="telefono">Celular</label>
-        <input id="telefono" type="tel" placeholder="999 888 777" required>
+        <legend>1. Crear nueva nota</legend>
+        
+        <label for="titulo-nota">Título de la nota</label>
+        <input id="titulo-nota" type="text" placeholder="Ej. Comprar insumos" required autocomplete="off">
+
+        <label for="contenido-nota">Detalle o contenido</label>
+        <textarea id="contenido-nota" rows="3" placeholder="Escribe aquí los detalles..." required></textarea>
       </fieldset>
- 
-      <fieldset>
-        <legend>2. Tu taller</legend>
-        <label for="taller">Elige un taller</label>
-        <select id="taller" required>
-          <option value="">Selecciona una opción</option>
-          <optgroup label="Control de versiones">
-            <option>Git</option> <option>GitHub</option> <option>Markdown</option>
-          </optgroup>
-          <optgroup label="Desarrollo web">
-            <option>HTML</option> <option>CSS</option> <option>JavaScript</option>
-            <option>React</option> <option>Node.js</option> <option>APIs</option>
-          </optgroup>
-          <optgroup label="Diseño y calidad">
-            <option>Figma</option> <option>Accesibilidad</option> <option>Testing</option>
-          </optgroup>
-        </select>
-      </fieldset>
- 
-      <p id="mensaje" class="mensaje" role="status"></p>
- 
+
+      <p id="mensaje-estado" class="mensaje" role="status"></p>
+
       <div class="acciones">
-        <button type="submit" class="boton-principal">Inscribirme</button>
-        <button type="reset" class="boton-secundario">Limpiar formulario</button>
+        <button type="submit" class="boton-principal">Guardar nota</button>
+        <button type="button" id="btn-cancelar" class="boton-secundario">Limpiar campos</button>
       </div>
     </form>
+
+    <section class="seccion-notas">
+      <h2>2. Mis Notas Guardadas</h2>
+      <ul id="lista-notas" class="lista-notas">
+        <!-- Las notas se cargarán dinámicamente -->
+      </ul>
+    </section>
   </main>
+
   <script src="app.js"></script>
 </body>
 </html>
